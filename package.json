@@ -49,7 +49,7 @@
     "conventional-github-releaser": "1.1.13",
     "cz-conventional-changelog": "^2.0.0",
     "reuters-21578-json": "^0.0.8",
-    "search-index-searcher": "^0.4.2",
+    "search-index-searcher": "darobin/search-index-searcher#update-level",
     "standard": "^8.5.0",
     "standard-changelog": "^1.0.1",
     "stopword": "^0.1.1",
