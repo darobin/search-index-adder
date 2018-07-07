@@ -7,7 +7,7 @@ standalone
 */
 
 const Logger = require('js-logger')
-const levelup = require('levelup')
+const level = require('level')
 const API = require('./lib/API.js')
 
 module.exports = function (givenOptions, callback) {
@@ -63,14 +63,8 @@ const getOptions = function (options, done) {
   // Use the global one because the library doesn't support providing handler to named logger
   Logger.setHandler(options.logHandler)
   if (!options.indexes) {
-    const leveldown = require('leveldown')
-    levelup(options.indexPath || 'si', {
-      valueEncoding: 'json',
-      db: leveldown
-    }, function (err, db) {
-      options.indexes = db
-      done(err, options)
-    })
+    options.indexes = level(options.indexPath || 'si')
+    done(null, options)
   } else {
     done(null, options)
   }
